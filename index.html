@@ -1,0 +1,9 @@
+// Function to handle date selection
+function handleDateSelection(event) {
+    const { date } = event.data;
+    // You can now use this date in your flow, save it to a variable, etc.
+    variables.selectedDate = date;
+}
+
+// Register the event listener for the date_selected event
+Voiceflow.on('date_selected', handleDateSelection);
