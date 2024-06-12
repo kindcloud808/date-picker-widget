@@ -1,9 +1,40 @@
-// Function to handle date selection
-function handleDateSelection(event) {
-    const { date } = event.data;
-    // You can now use this date in your flow, save it to a variable, etc.
-    variables.selectedDate = date;
-}
-
-// Register the event listener for the date_selected event
-Voiceflow.on('date_selected', handleDateSelection);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voiceflow Chat Widget</title>
+    <script src="path/to/extensions.js"></script> <!-- Include your extensions.js file -->
+</head>
+<body>
+    <div id="voiceflow-chat"></div> <!-- This is where the chat widget will be rendered -->
+    <script>
+        window.voiceflow.chat.load({
+            verify: { projectID: 'your-project-id' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'production', // Use 'development' or 'production' as needed
+            user: {
+                name: 'Demo User',
+            },
+            render: {
+                mode: 'overlay', // Or 'inline' depending on your needs
+            },
+            autostart: false,
+            allowDangerousHTML: true,
+            assistant: {
+                extensions: [
+                    VideoExtension,
+                    TimerExtension,
+                    FormExtension,
+                    MapExtension,
+                    FileUploadExtension,
+                    KBUploadExtension,
+                    DateExtension,  // Enable the DateExtension
+                    ConfettiExtension,
+                    FeedbackExtension,
+                ],
+            },
+        });
+    </script>
+</body>
+</html>
