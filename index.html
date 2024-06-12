@@ -1,27 +1,27 @@
-window.voiceflow.chat.load({
-  verify: { projectID: 'your project id' },
-  url: 'https://general-runtime.voiceflow.com',
-  versionID: 'development', // or 'production'
-  user: {
-    name: 'Demo User',
-  },
-  render: {
-    mode: 'overlay',
-  },
-  autostart: false,
-  allowDangerousHTML: true,
-  assistant: {
-    extensions: [
-      DisableInputExtension,
-      VideoExtension,
-      TimerExtension,
-      FormExtension,
-      MapExtension,
-      FileUploadExtension,
-      KBUploadExtension,
-      DateExtension,
-      ConfettiExtension,
-      FeedbackExtension,
-    ],
-  },
-});
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DateTime Picker</title>
+</head>
+<body>
+    <h2>Schedule Viewing</h2>
+    <form>
+        <label for="datetime">Select a date and time:</label>
+        <input type="datetime-local" id="datetime" name="datetime">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const datetime = document.getElementById('datetime').value;
+            alert('You selected: ' + datetime);
+            // You can also send this data back to your chatbot
+        });
+    </script>
+</body>
+</html>
+```
